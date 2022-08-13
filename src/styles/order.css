@@ -1,0 +1,60 @@
+.table-name{
+    padding-top: 10px; text-align: center; 
+    height: 50px;
+    width: 100px;
+    background-color: rgb(16, 16, 122);
+    color:white;
+}
+.coid{
+    border:1px solid lightgray;padding:5px;
+}
+.table_head{
+    background-color: gainsboro;
+    border: 1px solid lightgray;
+}
+.odr_name{
+    padding-left: 15px;
+}
+.table-button{
+    margin-left: 15px;
+
+}
+.table_image{
+    width:20%;
+}
+.table_image2{
+    width:13%;
+}
+.dollar {
+    background-color: rgb(185, 192, 90);
+    color: #fff;
+    height: 30px;
+    padding: 3px;
+    border: 1px solid olive;
+    margin-left: 20px;
+   
+}
+.inprocess{
+    margin-left: 20px;
+}
+.breadcrumb-item a{
+    color: black !important;
+}
+.button1 {
+    width: 100%;
+}
+
+/* .orderbutten{
+    color: #C7A073 ;
+    border-color: #C7A073 ;
+  } */
+  .orderbutten:focus{
+    color: #f8f9fa ;
+    /* background-color: #C7A073 ;
+    border-color: #C7A073 ; */
+  }
+  /* .orderbutten:hover{
+    color: #f8f9fa !important;
+    background-color: #C7A073 !important;
+    border-color: #C7A073 !important;
+  } */

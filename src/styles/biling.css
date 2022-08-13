@@ -1,0 +1,57 @@
+.sale{
+    height: 100%;
+    border-radius: 0px;
+}
+.payment{
+    width: 100%;
+    color: white;
+}
+.button1{
+    width: 100%;
+    border: 2px solid;
+    font-weight: 700;
+
+}
+
+.button1:hover{
+    color: #fff !important ;
+}
+.bbutton{
+    padding: 14px;
+}
+
+  .btn-check:focus+.btn, .btn:focus{
+    box-shadow: none;
+    /* color: #fff !important; */
+  }
+  .btn-check:active+.btn:focus, .btn-check:checked+.btn:focus, .btn.active:focus, .btn.show:focus, .btn:active:focus{
+    box-shadow: none;
+  }
+  .btn-check:active+.btn, .btn-check:checked+.btn, .btn.active, .btn.show, .btn:active{
+    color: #fff !important;
+  }
+
+.custom-select{
+    margin-left: 0px !important;
+    margin-bottom: 8px;
+}
+.sr-only{
+    display: none;
+}
+
+
+/* .billngbutton{
+  color: #C7A073 ;
+  border-color: #C7A073 ;
+} */
+.billngbutton:focus{
+  color: #f8f9fa ;
+}
+.billngbutton.active{
+  color: #f8f9fa ;
+}
+/* .billngbutton:hover{
+  color: #f8f9fa !important;
+  background-color: #C7A073 !important;
+  border-color: #C7A073 !important;
+} */

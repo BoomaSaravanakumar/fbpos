@@ -1,0 +1,152 @@
+.Dashboard{
+    /* background-color: rgb(250, 250, 250); */
+    height: 100vh;
+}
+.cardshadow .card-title{
+    text-align: center;
+}
+.cardshadow{
+    box-shadow:1px 3px 5px 2px #d3d3d3;
+    /* width: 194px; */
+    height: 165px;
+    width: 165px;
+    /* border: 1px solid #f45b0f ; */
+    border-radius: 50%; 
+    /* border: 10px red dotted;  */
+    
+}
+.cardshadow:hover{
+    /* box-shadow: inset 0px 0px 60px 0px #767060; */
+    box-shadow:1px 3px 5px 2px #d3d3d3;
+
+    /* box-shadow: inset 0px 0px 60px 0px #fa2a55;  */
+    background-color:  #fa2a55;
+    border: 1px solid #d3d3d3;
+
+
+}
+.logo{
+    border-radius: 50%;
+    width: 90px;
+}
+.card-footer{
+    background-color: transparent;
+    border-top:none ;
+}
+.cursore-point a{
+    color: black !important;
+}
+.cardbbq img{ 
+    padding: 1px 95px;
+    margin-top: 8px;
+}
+
+.cardshadow .card-body{
+    margin: 35px auto;
+}
+
+.cardbg{
+    transition: transform .7s ease-in-out;
+    /* position:absolute !important; */
+}
+/* .cardbg:hover{
+    transform: rotate(360deg);
+ 
+} */
+.cround{
+    transform: rotate(360deg);
+}
+/* .cardbg{
+    background-image: url("../images/Group\ 207.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
+
+.bbq{
+    position: absolute;
+    top: 160px;
+
+    left: 175px;
+}
+.bbq1{
+    position: absolute;
+    top: 160px;
+
+    left: 459px;
+}
+.bbq2{
+    position: absolute;
+    top: 160px;
+    left: 744px;
+}
+.bbq3{
+    position: absolute;
+    top: 160px;
+
+    left: 1030px;
+}
+.bbq4{
+    position: absolute;
+    /* background-image: url("../images/circle.png"); */
+    top:370px;
+    left: 175px;
+
+}
+.bbq5{
+    position: absolute;
+    top: 370px;
+    left: 460px;
+}
+.bbq6{
+    position: absolute;
+    top: 370px;
+    left: 743px;
+}
+.bbq7{
+    position: absolute;
+    top: 370px;
+    left: 1030px;
+   
+}
+
+@media only screen and (min-width: 200px) and (max-width: 767px){
+    .bbq {
+        position: absolute;
+        top: 195px;
+        left: 77px;
+    }
+    .bbq1 {
+        position: absolute;
+        top: 404px;
+        left: 77px;
+    }
+    .bbq2 {
+        position: absolute;
+        top: 113%;
+        left: 77px;
+    }.bbq3 {
+        position: absolute;
+        top: 152%;
+        left: 77px;
+    }
+    .bbq4 {
+        position: absolute;
+        top: 199%;
+        left: 77px;
+    }
+    .bbq5 {
+        position: absolute;
+        top: 229%;
+        left: 77px;
+    }
+    .bbq6 {
+        position: absolute;
+        left: 77px;
+        top: 267%;
+    }
+    .bbq7 {
+        position: absolute;
+        top: 306%;
+        left: 77px;
+    }
+}
