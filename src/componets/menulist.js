@@ -11,8 +11,21 @@ import { useParams, useLocation } from "react-router-dom";
 // import Carousel from 'react-bootstrap/Carousel'
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import profile from '../images/profile.png'
+import burger from '../images/burger.jpg'
 function Takeaway(prop) {
   
+  let [count, setCount] = useState(0);
+
+  function incrementCount() {
+    count = count + 1;
+    setCount(count);
+  }
+  function decrementCount() {
+    
+    count = (count==0?count:count - 1);
+    setCount(count);
+  }
   const states = useLocation()
   const { id } = useParams();
   const [doortake, setdoortake] = useState("d-block")
@@ -271,7 +284,7 @@ function Takeaway(prop) {
                 </div>
               </Tab.Pane>
               <Tab.Pane eventKey="second">
-                <div className="row">
+                {/* <div className="row">
                 <div class="col-lg-2 col-md-4  submenu  col-sm-12">
                     <div class="card">
                         <img src={one} alt="" class="cardimage" />
@@ -290,7 +303,7 @@ function Takeaway(prop) {
                       <p class="card_paragraph">Aballon Slice</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 <hr />
                 <div class="row ">
                   <div class="row cardrow" id="categorylist">
@@ -406,17 +419,15 @@ function Takeaway(prop) {
                           </div>
                         </div>
                       </Carousel.Item>
-                     
                     </Carousel>
                   </div>
                 </div>
               </Tab.Pane>
               <Tab.Pane eventKey="third">
-                <div className="row">
+                {/* <div className="row">
                 <div class="col-lg-2 col-md-4  submenu  col-sm-12">
                     <div class="card">
                         <img src={one} alt="" class="cardimage" />
-
                       <p class="card_paragraph">Aballon Slice</p>
                     </div>
                   </div>
@@ -427,13 +438,11 @@ function Takeaway(prop) {
                           alt=""
                           class="rounded-circle   cardimage"
                         />
-
                       <p class="card_paragraph">Aballon Slice</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 <hr />
-                <div class="row ">
                 <div class="row cardrow" id="categorylist">
                 <Carousel interval={null}>
                     <Carousel.Item>
@@ -550,11 +559,10 @@ function Takeaway(prop) {
                      
                     </Carousel>
                   </div>
-                </div>
               </Tab.Pane>
 
               <Tab.Pane eventKey="four">
-                <div className="row">
+                {/* <div className="row">
                 <div class="col-lg-2 col-md-4  submenu  col-sm-12">
                     <div class="card">
                         <img src={one} alt="" class="cardimage" />
@@ -569,11 +577,10 @@ function Takeaway(prop) {
                           alt=""
                           class="rounded-circle   cardimage"
                         />
-
                       <p class="card_paragraph">Aballon Slice</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 <hr />
                 <div class="row ">
                 <div class="row cardrow" id="categorylist">
@@ -611,7 +618,6 @@ function Takeaway(prop) {
                                 <small>Aballon Slice</small><small> $.0998</small>
                               </div>
                             </div>
-
                           </div>
                         </div>
                       </Carousel.Item>
@@ -648,7 +654,6 @@ function Takeaway(prop) {
                                 <small>Aballon Slice</small><small> $.0998</small>
                               </div>
                             </div>
-
                           </div>
                         </div>
                       </Carousel.Item>
@@ -685,11 +690,9 @@ function Takeaway(prop) {
                                 <small>Aballon Slice</small><small> $.0998</small>
                               </div>
                             </div>
-
                           </div>
                         </div>
                       </Carousel.Item>
-                     
                     </Carousel>
                   </div>
                 </div>
@@ -813,8 +816,8 @@ function Takeaway(prop) {
               </div>
             </div>
           </div> */}
-          <div className="row">
-            <div className="col-md-5">
+          <div className="row order_card">
+            <div className="col-md-5 p-0">
 <div className="">
 <button type="button" class="btn btn-success buttons">Order in Progress</button>
 </div>
@@ -823,9 +826,12 @@ function Takeaway(prop) {
 </button>
 </div>
             </div>
-            <div className="col-md-2">
-2
-            </div><div className="col-md-5">
+            <div className="col-md-2 p-0 m-0">
+<div align="center">
+  <img src={profile} className="profile_image"></img>
+</div>
+            </div>
+            <div className="col-md-5 p-0">
             <div className="">
 <button type="button" class="btn btn-success buttons">Item Code:227</button>
 </div>
@@ -833,6 +839,93 @@ function Takeaway(prop) {
 <button type="button" class="btn btn-danger buttons">Order No:5
 </button>
 </div>
+          </div>
+          </div>
+          <div className="row additem mt-2">
+<div className="col-md-12">
+  {/* <div className=""> */}
+              <h6>Cheese Burger</h6>
+              {/* </div>
+              <div className=""> */}
+            {/* <button className=" ">x</button> */}
+            {/* </div> */}
+            </div>
+        <div className="col-md-3">
+  <div>
+<img className="burger_image" src={burger}></img>
+</div>
+</div>
+<div className="col-md-7">
+<small>Lorem Ipsum is not simply random text.</small>
+<button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button>
+
+</div>
+<div className="col-md-2">
+{/* <button>x</button> */}
+<button onClick={incrementCount}>+</button>
+      <p>{count}</p>
+       <button onClick={decrementCount}>-</button>
+</div>
+          </div>
+          <div className="row additem mt-2">
+<div className="col-md-12">
+  {/* <div className=""> */}
+              <h6>Cheese Burger</h6>
+              {/* </div>
+              <div className=""> */}
+            {/* <button className=" ">x</button> */}
+            {/* </div> */}
+            </div>
+        <div className="col-md-3">
+  <div>
+<img className="burger_image" src={burger}></img>
+</div>
+</div>
+<div className="col-md-7">
+<small>Lorem Ipsum is not simply random text.</small>
+<button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button>
+
+</div>
+<div className="col-md-2">
+{/* <button>x</button> */}
+<button onClick={incrementCount}>+</button>
+      <p>{count}</p>
+       <button onClick={decrementCount}>-</button>
+</div>
+          </div>
+          <div className="row additem mt-2">
+<div className="col-md-12">
+  {/* <div className=""> */}
+              <h6>Cheese Burger</h6>
+              {/* </div>
+              <div className=""> */}
+            {/* <button className=" ">x</button> */}
+            {/* </div> */}
+            </div>
+        <div className="col-md-3">
+  <div>
+<img className="burger_image" src={burger}></img>
+</div>
+</div>
+<div className="col-md-7">
+<small>Lorem Ipsum is not simply random text.</small>
+<button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button>
+
+</div>
+<div className="col-md-2">
+{/* <button>x</button> */}
+<button onClick={incrementCount}>+</button>
+      <p>{count}</p>
+       <button onClick={decrementCount}>-</button>
 </div>
           </div>
         </div>
@@ -1038,11 +1131,7 @@ function Takeaway(prop) {
           <Button onClick={() => handlcmodal()}>Close</Button>
         </Modal.Footer>
       </Modal>
-
-
       <div>
-
-
       </div>
     </div>
   );

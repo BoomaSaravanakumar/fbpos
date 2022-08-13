@@ -60,10 +60,6 @@
     margin-left: 10px;
     margin-right: 10px;
 }
-.menu{
-    background-color: #efeff0;
-    padding: 10px 5px;
-}
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   height: 100px;
@@ -142,3 +138,25 @@ div.transbox {
     margin: 5px;
     border-radius: 20px;
   }
+  .profile_image{
+height: 75px;
+}
+.order_card{
+    border: 1px solid lightgray;
+    border-radius: 8px;
+}
+.burger_image {
+    height: 70px;
+    width: -webkit-fill-available;
+    border-radius: 12px;
+}
+.additem{
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+    padding: 10px;
+}
+.varients{
+    border-radius: 8px;
+    border: 1px solid lightgray;
+    margin: 2px;
+}
