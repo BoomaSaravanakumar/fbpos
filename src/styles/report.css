@@ -1,0 +1,22 @@
+.reports{
+    max-width: 40%;
+    margin: 0 auto;
+}
+.red_button{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.report1{
+    width: 50%;
+margin: 0 auto;
+
+}
+.rbutton{
+    padding: 14px;
+}
+
+
+  .reportb:focus{
+    color: #f8f9fa ;
+
+  }

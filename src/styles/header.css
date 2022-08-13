@@ -1,0 +1,18 @@
+.navbar-brand{
+    color: rgba(0,0,0,.9) !important;
+    font-size: 30px;
+}
+.navbar{
+    border-bottom: 1px solid rgb(201, 193, 197);
+    box-shadow: 2px 2px lightgrey
+}
+.goback{
+    color: white;border:none; background-color: rgb(66, 36, 36);padding:5px;border-radius: 4px;margin-right: 5px;
+
+}
+.prevbtn{
+    color: white;border:none; background-color: rgb(66, 36, 36);padding:5px;border-radius: 4px;margin-right: 5px;
+}
+.logout{
+    color: white; border:none;background-color: rgb(66, 36, 36);padding:5px;border-radius: 4px;/* height:35px; */
+}

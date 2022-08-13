@@ -1,0 +1,49 @@
+.bbq_tablelist img{
+    padding: 1px 25px;
+ }
+ .tablelist{
+     padding: 5px;
+ }
+ .bbq_tablelist p{
+     margin: 0px;
+     color: black;
+     font-size: 13px;
+     text-align: center;
+     
+   
+  } 
+  .not-available
+{
+    /* padding-left: 10px; */
+    /* color: red;
+    bo */
+    border-bottom: 5px solid red;
+}
+.bavailable{
+    border-bottom: 5px solid green;
+}
+  .bbq_tablelist span{
+     font-size: 11px;
+   font-weight: 400;
+   text-align: center;
+  }
+  .well {
+     padding: 10px;
+     font-weight: 500;
+     color: #542f05;
+     background-color: #efefef;
+     border: 1px solid #ddd;
+     border-radius: 4px;
+     
+ }
+ .check{
+    
+     font-size: 14px;
+ }
+ .check1{
+     
+     font-size: 14px;
+ 
+ }
+ 
+ 
