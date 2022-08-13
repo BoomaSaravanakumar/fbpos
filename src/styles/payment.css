@@ -29,3 +29,7 @@ p{
     color: white;
     font-weight: 500;   
 }
+.card{
+    box-shadow: 1px 1px 5px 3px rgb(240, 240, 243);
+    border: none;
+}

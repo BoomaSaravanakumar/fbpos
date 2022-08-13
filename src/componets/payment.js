@@ -3,6 +3,7 @@ import Table from 'react-bootstrap/Table';
 import "../styles/payment.css";
 import FontAwesomeIcon from "react-fontawesome";
 import 'font-awesome/css/font-awesome.min.css';
+import User from'../images/user.jpg'
 function Payment() {
   return (
     <div className="pay container">
@@ -79,7 +80,25 @@ function Payment() {
           </div>
       
         </div>
-        <div className="col-md-6 col-lg-6 col-sm-12">djkkyiukiuk</div>
+        <div className="col-md-6 col-lg-6 col-sm-12">
+          <div className="card ">
+            <div className="row">
+            <div className="col-md-5 p-4"><h5>Payable Amount</h5>
+            <span>$435.00</span>
+            </div>
+            <div className="col-md-2 p-4">
+            <img src={User} style={{width:"55px"}}/>
+            </div>
+            <div className="col-md-5 pt-4">
+              <h5>Vingent Lobo</h5>
+            <span>#5656GT5</span>
+            </div>
+            </div>
+          </div>
+          <div className="card p-4 mt-4">
+           <h5>Cash</h5>
+          </div>
+        </div>
       </div>
     </div>
   );

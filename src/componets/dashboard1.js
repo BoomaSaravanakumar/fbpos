@@ -26,6 +26,7 @@ import Report1 from "../images/wreport.png";
 
 
 
+
 function Dashboard() {
   const [show, setShow] = useState(false);
   const [ccart,setccard] = useState("")
@@ -42,12 +43,12 @@ function Dashboard() {
           <img src={Logo} class="logo" alt="" />
         </div>
         <div className="row">
-          <div className="col-md-7" align="right">
+          <div className="col-md-7 col-sm-12" align="right">
             <a class="navbar-brand " id="title" href="#">
               FooDie Hub
             </a>
           </div>
-          <div className="col-md-5" align="right">
+          <div className="col-md-5 col-sm-12" align="right">
             <button class="logout " type="submit">
               <Link to="/login">
                 Logout{" "}
@@ -82,7 +83,6 @@ function Dashboard() {
                   <div align="center">
                     <img src={BBQ} alt="" className="front" style={{height:"70px"}}/>
                     <img src={BBQ1} className="back" alt="" />
-
                     <h6 class="text-center">BBQ</h6>
                   </div>
                 </div>
@@ -158,6 +158,7 @@ function Dashboard() {
                     <img src={Door} alt="" className="front"/>
                     <img src={Door1} className="back" alt="" />
 
+
                     <h6 class="">Door Delivery</h6>
                   </div>
                   {/* <h6 class="card-title  mt-2"></h6> */}
@@ -184,6 +185,7 @@ function Dashboard() {
                     <img src={Order} alt="" className="front"/>
                     <img src={Order1} className="back" alt="" />
 
+
                     <h6 class="">Order</h6>
                   </div>
                   {/* <h6 class="card-title  mt-2">Order</h6> */}
@@ -207,7 +209,7 @@ function Dashboard() {
                   <div align="center">
                     <img src={Kitchen} alt="" className="front"/>
                     <img src={Kitchen1} className="back" alt="" />
-
+\
                     <h6 class="">Kitchen</h6>
                   </div>
                   {/* <h6 class="card-title  mt-2">Kitchen</h6> */}

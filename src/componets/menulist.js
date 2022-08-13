@@ -8,10 +8,11 @@ import Tab from "react-bootstrap/Tab";
 import { Button, Modal, Carousel } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
-
 // import Carousel from 'react-bootstrap/Carousel'
-
+import React, { Component } from 'react';
+import { render } from 'react-dom';
 function Takeaway(prop) {
+  
   const states = useLocation()
   const { id } = useParams();
   const [doortake, setdoortake] = useState("d-block")
@@ -19,13 +20,16 @@ function Takeaway(prop) {
   const [show, setshow] = useState(false);
   const [customermshow, setcshow] = useState(false);
   const [ordermenu, setomenu] = useState("Door delivery");
-
+  const [today,settime] = useState(new Date())
+  const [ctime , setctime] = useState(today.getHours() + ':' + today.getMinutes())
   const handleModal = () => {
     setshow(!show);
   };
   const handlcmodal = () => {
-    setcshow(!customermshow);
-  };
+    setcshow(!customermshow)
+  };  
+
+ 
   useEffect(() => {
     if (id == "doordelivery") {
       setdoortake("d-none")
@@ -42,132 +46,45 @@ function Takeaway(prop) {
   return (
     <div class="container-fluid">
       <div class="row mt-3">
-        <div class="col-md-5 col-lg-5 col-sm-12 menu">
-          <div class="">
-            <select id="inputState" class="form-select">
-              <option selected>Royal gold Town</option>
-            </select>
-          </div>
-          <div class="mt-1">
-            <select id="inputState" class="form-select ">
-              <option>{ordermenu}</option>
-            </select>
-          </div>
-          <div class={"mt-1 " + doortake}>
-            <select id="inputState" class="form-select">
-              <option selected>{states.state ? states.state.table : "Choice Table"}</option>
-            </select>
-          </div>
-          <div className={"mt-1 " + doortake}>
-            <input
-              class="form-control mt-1"
-              type="text"
-              placeholder="How Many Pepole?"
-              aria-label=".form-control-sm example"
-            />
-
-          </div>
-          <div class="input-group mt-1">
-            <input
-              type="text"
-              class="form-control"
-              aria-label="Text input with checkbox"
-              placeholder="Search Sale Item By Name Code"
-            />
-            <div class="input-group-text ">
-              <a
-                href="javascripte:void(0)"
-                onClick={() => {
-                  setshow(true);
-                }}
-              >
-                <i class="bi bi-plus-circle"></i>
-              </a>
-            </div>
-          </div>
-          <div class="input-group mb-1 mt-1">
-            <input
-              type="text"
-              class="form-control"
-              aria-label="Text input with checkbox"
-              placeholder="Walkin Customer"
-            />
-            <div class="input-group-text">
-              <i class="bi bi-pencil-square"></i>
-            </div>
-            <div class="input-group-text">
-              <i class="bi bi-eye"></i>
-            </div>
-            <div class="input-group-text">
-              <a
-                href="javascripte:void(0)"
-                onClick={() => {
-                  setcshow(true);
-                }}
-              >
-                <i class="bi bi-plus-circle"></i>
-              </a>
-            </div>
-          </div>
-          <div class=" bg-white">
-            <div class="col-md-12 col-lg-12 col-sm-12">
-              <table class="table bg-white text-center">
-                <thead class="table ">
-                  <tr>
-                    <th scope="col">Sale Item</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Qty</th>
-                    <th scope="col">Subtotal</th>
-                    <th scope="col">
-                      <i class="bi bi-trash"></i>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="tborder"></tbody>
-
-              </table>
-            </div>
-            <div class="row p-2">
-              <div class="col-md-6 border-top col-lg-6 col-sm-12">
-                <span>Items:</span>
-                <br />
-                <span>total:</span>
-              </div>
-              <div class="col-md-6 border-top col-lg-6 col-sm-12">
-                <span>5</span>
-                <br />
-                <span>576.9</span>
-              </div>
-            </div>
-
-            <div class="row mt-3 p-1">
-              <div
-                class="btn-group "
-                role="group"
-                aria-label="Basic mixed styles example"
-              >
-                <button type="button" class="btn btn-primary">
-                  <i class="bi bi-x-lg"></i>&nbsp;&nbsp;Cancel
-                </button>
-
-                <button type="button" class="btn btn-success ">
-                  <a href="dinein_kitchen.html" className="send-kitchen">
-                    <i class="bi bi-send-fill "></i>&nbsp;&nbsp;Send to Kitchen
-                  </a>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-7 col-lg-7 col-sm-12">
+        <div class="col-md-2 col-lg-2 col-sm-12">
+<div class="menu_lists">           
+<div class="transbox">
+  <div>
+    <p>Burger</p>
+    </div>
+  </div>
+</div>
+<div class="menu_lists1">           
+<div class="transbox">
+  <div>
+    <p>Briyani</p>
+    </div>
+  </div>
+</div><div class="menu_lists2">           
+<div class="transbox">
+  <div>
+    <p>Chicken</p>
+    </div>
+  </div>
+</div><div class="menu_lists3">           
+<div class="transbox">
+  <div>
+    <p>Salads</p>
+    </div>
+  </div>
+</div>
+     </div>
+      <div class="col-md-6 col-lg-6 col-sm-12">
           <Tab.Container id="left-tabs-example" defaultActiveKey="first">
             <Nav variant="pills" className="flex-column">
+              <strong>Choose Category</strong>
+              <hr></hr>
               <Row>
                 <Col sm={3} md={4} lg={3}>
                   <Nav.Item className="card category">
                     <Nav.Link eventKey="first" align="center">
                       <img src={one} alt="" class="cardimage rounded-circle" />
-                      <p>Royal Suki set</p>
+                      <p>Suki set</p>
                     </Nav.Link>
                   </Nav.Item>
                 </Col>
@@ -209,11 +126,10 @@ function Takeaway(prop) {
                 </Col>
               </Row>
             </Nav>
-            <hr />
-
+           
             <Tab.Content>
               <Tab.Pane eventKey="first">
-                <div className="row">
+                {/* <div className="row">
                   <div class="col-lg-2 col-md-4  submenu  col-sm-12">
                     <div class="card">
                         <img src={one} alt="" class="cardimage" />
@@ -232,7 +148,7 @@ function Takeaway(prop) {
                       <p class="card_paragraph">Aballon Slice</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 <hr />
                 <div class="row ">
                   <div class="row cardrow" id="categorylist">
@@ -781,6 +697,145 @@ function Takeaway(prop) {
             </Tab.Content>
           </Tab.Container>
         </div>
+        <div class="col-md-4 col-lg-4 col-sm-12 menu">
+          {/* <div class="">
+            <select id="inputState" class="form-select">
+              <option selected>Royal gold Town</option>
+            </select>
+          </div>
+          <div class="mt-1">
+            <select id="inputState" class="form-select ">
+              <option>{ordermenu}</option>
+            </select>
+          </div>
+          <div class={"mt-1 " + doortake}>
+            <select id="inputState" class="form-select">
+              <option selected>{states.state ? states.state.table : "Choice Table"}</option>
+            </select>
+          </div>
+          <div className={"mt-1 " + doortake}>
+            <input
+              class="form-control mt-1"
+              type="text"
+              placeholder="How Many Pepole?"
+              aria-label=".form-control-sm example"
+            />
+
+          </div>
+          <div class="input-group mt-1">
+            <input
+              type="text"
+              class="form-control"
+              aria-label="Text input with checkbox"
+              placeholder="Search Sale Item By Name Code"
+            />
+            <div class="input-group-text ">
+              <a
+                href="javascripte:void(0)"
+                onClick={() => {
+                  setshow(true);
+                }}
+              >
+                <i class="bi bi-plus-circle"></i>
+              </a>
+            </div>
+          </div>
+          <div class="input-group mb-1 mt-1">
+            <input
+              type="text"
+              class="form-control"
+              aria-label="Text input with checkbox"
+              placeholder="Walkin Customer"
+            />
+            <div class="input-group-text">
+              <i class="bi bi-pencil-square"></i>
+            </div>
+            <div class="input-group-text">
+              <i class="bi bi-eye"></i>
+            </div>
+            <div class="input-group-text">
+              <a
+                href="javascripte:void(0)"
+                onClick={() => {
+                  setcshow(true);
+                }}
+              >
+                <i class="bi bi-plus-circle"></i>
+              </a>
+            </div>
+          </div>
+          <div class=" bg-white">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <table class="table bg-white text-center">
+                <thead class="table ">
+                  <tr>
+                    <th scope="col">Sale Item</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Subtotal</th>
+                    <th scope="col">
+                      <i class="bi bi-trash"></i>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="tborder"></tbody>
+
+              </table>
+            </div>
+            <div class="row p-2">
+              <div class="col-md-6 border-top col-lg-6 col-sm-12">
+                <span>Items:</span>
+                <br />
+                <span>total:</span>
+              </div>
+              <div class="col-md-6 border-top col-lg-6 col-sm-12">
+                <span>5</span>
+                <br />
+                <span>576.9</span>
+              </div>
+            </div>
+
+            <div class="row mt-3 p-1">
+              <div
+                class="btn-group "
+                role="group"
+                aria-label="Basic mixed styles example"
+              >
+                <button type="button" class="btn btn-primary">
+                  <i class="bi bi-x-lg"></i>&nbsp;&nbsp;Cancel
+                </button>
+
+                <button type="button" class="btn btn-success ">
+                  <a href="dinein_kitchen.html" className="send-kitchen">
+                    <i class="bi bi-send-fill "></i>&nbsp;&nbsp;Send to Kitchen
+                  </a>
+                </button>
+              </div>
+            </div>
+          </div> */}
+          <div className="row">
+            <div className="col-md-5">
+<div className="">
+<button type="button" class="btn btn-success buttons">Order in Progress</button>
+</div>
+<div className="">
+<button type="button" class="btn btn-danger buttons">Time {ctime}
+</button>
+</div>
+            </div>
+            <div className="col-md-2">
+2
+            </div><div className="col-md-5">
+            <div className="">
+<button type="button" class="btn btn-success buttons">Item Code:227</button>
+</div>
+<div className="">
+<button type="button" class="btn btn-danger buttons">Order No:5
+</button>
+</div>
+</div>
+          </div>
+        </div>
       </div>
       {/* order modal */}
       <Modal
@@ -992,5 +1047,4 @@ function Takeaway(prop) {
     </div>
   );
 }
-
 export default Takeaway;

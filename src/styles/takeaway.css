@@ -22,9 +22,7 @@
 .category .nav-link img{
     padding: 1px 20px;
 }
-.category .nav-link{
-    /* border: 1px solid #ded1c1; */
-}
+
 .tborder{
     height: 50px;
 }
@@ -91,3 +89,54 @@
 .carousel-indicators{
     display: none;
 }
+.menu_lists{
+    text-align: center;
+    background-image: url('../images/burger.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+ 
+    border-bottom: 1px solid #fff;
+  
+}
+.menu_lists1{
+    text-align: center;
+    background-image: url('../images/Biryani.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    border-bottom: 1px solid #fff;
+  
+}
+.menu_lists2{
+    text-align: center;
+    background-image: url('../images/chicken.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    border-bottom: 1px solid #fff;
+  
+}
+.menu_lists3{
+    text-align: center;
+    background-image: url('../images/salad.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    border-bottom: 1px solid #fff;
+  
+}
+div.transbox {
+    background-color: #000000;
+    height: 82px;
+    border: 1px solid black;
+    opacity: 0.5;
+  }
+  .transbox p{
+    color: #fff;
+    padding-top: 25px;
+  }
+  .buttons{
+    width: -webkit-fill-available;
+    margin: 5px;
+    border-radius: 20px;
+  }
