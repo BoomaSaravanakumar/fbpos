@@ -1,0 +1,35 @@
+.pay{
+    overflow: hidden;
+}
+.orderid{
+    border-bottom: 1px solid lightgray;
+    padding: 20px;
+}
+.smalltext{
+    color: rgb(196, 194, 194);
+    font-weight: 600;
+  
+}
+p{
+    line-height: 15px;
+}
+.stotal{
+    padding-bottom: 40px;
+}
+.credit p{
+    font-weight: 600;
+}
+.btn_bg{
+    background-color: rgb(5, 177, 5);
+    color: white;
+    font-weight: 500;
+}
+.btn_bg:hover{
+    background-color: rgb(5, 177, 5);
+    color: white;
+    font-weight: 500;   
+}
+.card{
+    box-shadow: 1px 1px 5px 3px rgb(240, 240, 243);
+    border: none;
+}

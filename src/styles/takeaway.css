@@ -22,9 +22,7 @@
 .category .nav-link img{
     padding: 1px 20px;
 }
-.category .nav-link{
-    /* border: 1px solid #ded1c1; */
-}
+
 .tborder{
     height: 50px;
 }
@@ -138,25 +136,3 @@ div.transbox {
     margin: 5px;
     border-radius: 20px;
   }
-  .profile_image{
-height: 75px;
-}
-.order_card{
-    border: 1px solid lightgray;
-    border-radius: 8px;
-}
-.burger_image {
-    height: 70px;
-    width: -webkit-fill-available;
-    border-radius: 12px;
-}
-.additem{
-    border: 1px solid lightgrey;
-    border-radius: 8px;
-    padding: 10px;
-}
-.varients{
-    border-radius: 8px;
-    border: 1px solid lightgray;
-    margin: 2px;
-}

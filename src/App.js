@@ -14,6 +14,8 @@ import Billing from "./componets/billing"
 import Order from "./componets/order"
 import Report from "./componets/report"
 import BBQ from "./componets/bbq"
+import Payment from './componets/payment';
+
 
 
 function App() {
@@ -30,6 +32,7 @@ function App() {
         <Route path="/Order" element={<><Header/><Order/></>} />
         <Route path="/bbq" element={<><Header/><BBQ/></>} />
         <Route path="/report" element={<><Header/><Report/></>} />
+        <Route path="/payment" element={<><Header/><Payment/></>} />
         <Route path="/*" element={ <Navigate replace to="/login" />} />
       </Routes>
     </div>
