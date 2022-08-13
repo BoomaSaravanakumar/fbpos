@@ -1,8 +1,8 @@
 import React from "react";
 import Table from 'react-bootstrap/Table';
 import "../styles/payment.css";
-import FontAwesomeIcon from "react-fontawesome";
-import 'font-awesome/css/font-awesome.min.css';
+// import FontAwesomeIcon from "react-fontawesome";
+// import 'font-awesome/css/font-awesome.min.css';
 import User from'../images/user.jpg'
 function Payment() {
   return (
