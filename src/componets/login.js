@@ -62,7 +62,7 @@ useEffect(()=>{
           className="d-none"
         />
              <Keyboard 
-            
+        
           theme={"hg-theme-default hg-layout-numeric numeric-theme"}
           layoutName={layoutName}
           onChange={input => onChange(input)}

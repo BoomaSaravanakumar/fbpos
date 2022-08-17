@@ -1,14 +1,48 @@
 import React from "react";
 import Table from 'react-bootstrap/Table';
 import "../styles/payment.css";
-// import FontAwesomeIcon from "react-fontawesome";
-// import 'font-awesome/css/font-awesome.min.css';
-import User from'../images/user.jpg'
+import User from'../images/user.jpg';
+
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
+import Keyboard from "react-simple-keyboard";
+import inputMask from "simple-keyboard-input-mask";
+import "react-simple-keyboard/build/css/index.css";
+import {useEffect, useRef,useState} from "react";
+
 function Payment() {
+  
+  const [layoutName,setlayoutname] = useState("default")
+  const [input,setinput] = useState("")
+  const wrapperRef = useRef(null);
+  const [cdata , setcdata] = useState(new Date().getDate()+"/0"+(new Date().getMonth()+1)+"/"+new Date().getFullYear())
+  const [konfocus,setkonf] = useState("d-none")
+  const onChange = (inputs) => {
+    console.log(inputs)
+      if(inputs=="Cancel"){
+        setinput("")
+      }else{
+        setinput(inputs)
+      }
+      
+
+  };
+
+ const onKeyPress = (button) => {
+    if (button ==="{enter}"){
+        setkonf("d-none")
+    }else if(button == "Cancel"){
+      setinput("")
+    }else if(button=="{bksp}"){
+      setinput(input.slice(0,input.length-1))
+    }else{
+      setinput(input+""+button)
+    }
+  }
   return (
-    <div className="pay container">
+    <div className="pay container-fluid">
         
-      <div className="row pt-4">
+      <div className="row p-4">
         <div className="col-md-6 col-lg-6 col-sm-12">
           <div className="card">
             <div className="orderid">
@@ -74,15 +108,14 @@ function Payment() {
           </div>
           <div className="row  p-4 pt-1">
             <button className="btn  p-2 btn_bg" >
-              {/* <FontAwesomeIcon icon="fa-solid fa-credit-card" /> */}
-              Confirm Payment</button>
+            <i class="bi bi-credit-card-2-back"></i>  Confirm Payment</button>
           </div>
           </div>
       
         </div>
-        <div className="col-md-6 col-lg-6 col-sm-12">
+        <div className="col-md-6 col-lg-6 col-sm-12 cash">
           <div className="card ">
-            <div className="row">
+            <div className="row ">
             <div className="col-md-5 p-4"><h5>Payable Amount</h5>
             <span>$435.00</span>
             </div>
@@ -95,8 +128,49 @@ function Payment() {
             </div>
             </div>
           </div>
-          <div className="card p-4 mt-4">
-           <h5>Cash</h5>
+          <div className="card p-4 mt-4 pt-1 pb-1">
+           
+
+    <Tabs
+      defaultActiveKey="home"
+      id="justify-tab-example"
+      className="mb-3"
+      justify
+    >
+      <Tab eventKey="home" title="Cash">
+        <div className="row m-1 ">
+          <div className="p-0 mb-3" ref={wrapperRef}>
+             <input onFocus={()=>{setkonf("")}} onChange={(e)=>{setinput(e.target.value)}} value={input}  type="text" className="billscreen  col-md-12 " id="formGroupExampleInput" />
+
+          </div>
+          <Keyboard 
+            
+            theme={"hg-theme-default hg-layout-numeric numeric-theme"}
+            layoutName={layoutName}
+            
+            onKeyPress={button => onKeyPress(button)}
+            disableCaretPositioning={true}
+            
+            layout={{
+              default: ["1 2 3", "4 5 6", "7 8 9", "00 0 {bksp}", ". Cancel",],
+              // shift: ["! / #", "$ % ^", "& * (", "{shift} ) +", "{bksp}"]
+            }}
+            inputMask={"(99) 9999-9999"}
+            modules={[inputMask]}
+            keyboardRef={r => (console.log(r))}
+            display={{
+              '{bksp}': 'X'
+             
+            }}
+          />
+        </div>
+      </Tab>     
+      <Tab eventKey="contact" title="Other Modes" >
+       Card
+      </Tab>
+    </Tabs>
+ 
+  
           </div>
         </div>
       </div>

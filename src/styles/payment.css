@@ -14,7 +14,7 @@ p{
     line-height: 15px;
 }
 .stotal{
-    padding-bottom: 40px;
+    padding-bottom: 20px;
 }
 .credit p{
     font-weight: 600;
@@ -32,4 +32,55 @@ p{
 .card{
     box-shadow: 1px 1px 5px 3px rgb(240, 240, 243);
     border: none;
+}
+.billscreen{
+    height: 50px;
+    border: 1px solid lightgray;
+   text-align: right;
+   font-size: 20px;
+   font-weight: 600; 
+}
+.hg-theme-default {
+    background-color: #ffff;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
+    overflow: hidden;
+    padding: 5px;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+    width: 100%;
+}
+.hg-theme-default.hg-layout-numeric .hg-button {
+    align-items: center;
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    width: 33.3%;
+    background-color: rgb(245, 245, 245);
+    margin-bottom: 5px;
+    border-radius: 3px;
+    font-size: 20px;
+    font-weight: 500;
+    border-bottom: none;
+}
+.hg-theme-default.hg-layout-numeric .hg-button:not(:last-child){
+    margin-right: 15px !important;
+
+}
+.nav-fill .nav-item .nav-link, .nav-justified .nav-item .nav-link {
+    width: 100%;
+    border: none;
+    font-size: 20px;
+
+}
+.nav-fill .nav-item .nav-link, .nav-justified .nav-item .nav-link.active {
+    width: 100%;
+    border-bottom: 3px solid rgb(255, 115, 0) !important;
+    color:rgb(255, 115, 0);
+    font-size: 20px;
+}
+.cash{
+    padding-left: 25px;
 }

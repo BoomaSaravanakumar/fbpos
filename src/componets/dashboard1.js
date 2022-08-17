@@ -209,7 +209,6 @@ function Dashboard() {
                   <div align="center">
                     <img src={Kitchen} alt="" className="front"/>
                     <img src={Kitchen1} className="back" alt="" />
-\
                     <h6 class="">Kitchen</h6>
                   </div>
                   {/* <h6 class="card-title  mt-2">Kitchen</h6> */}
@@ -219,7 +218,7 @@ function Dashboard() {
             </Link>
           </div>
           <div className="col-md-4 col-sm-12 col-lg-3   mt-2" align="center">
-            <Link to="/billing">
+            <Link to="/payment">
             <div  className={"cardbg " + (ccart=="bbq6"?"cround":"")} onMouseOver={()=>{setccard("")}}>
                 <img src={Image1}/>
               </div>

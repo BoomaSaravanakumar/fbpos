@@ -15,6 +15,7 @@ import Order from "./componets/order"
 import Report from "./componets/report"
 import BBQ from "./componets/bbq"
 import Payment from './componets/payment';
+import KitchenOrder from './componets/kitchenorder';
 
 
 
@@ -26,7 +27,7 @@ function App() {
         <Route path="/login" element = {<Login />} />
         <Route path="/dashboard" element={ <Dashboard/>}  />
         <Route path="/dinein" element={<><Header/><Dinein/></>} />
-        <Route path="/kitchen" element={<><Header/><Kitchen /></>} />
+        <Route path="/kitchen" element={<><Header/><KitchenOrder /></>} />
         <Route path="/menu/:id" element={<><Header/><Menu/></>} />
         <Route path="/billing" element={<><Header/><Billing/></>} />
         <Route path="/Order" element={<><Header/><Order/></>} />
