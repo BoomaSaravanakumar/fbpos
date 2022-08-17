@@ -3,8 +3,9 @@
 
 }
 .cardsideimg{
-    padding: 1px 32px;
-    border-radius: 100%;
+    padding: 0px;
+    border-radius: 5%;
+    height: 122px;
 }
 .category .nav-item{
     display: inline-block;
@@ -31,7 +32,7 @@
 }
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     color: var(--bs-nav-pills-link-active-color);
-    background-color: #C7A073;
+    background-color: #fbbc04;
     color:#fff !important;
 }
 .category a{
@@ -86,40 +87,21 @@
     display: none;
 }
 .menu_lists{
-    text-align: center;
-    background-image: url('../images/burger.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
- 
-    border-bottom: 1px solid #fff;
-  
+    padding: 15px;
 }
-.menu_lists1{
-    text-align: center;
-    background-image: url('../images/Biryani.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-
-    border-bottom: 1px solid #fff;
-  
+.category-list{
+    height: 83vh;
+    overflow-y: auto;
+    width: 200px;
 }
-.menu_lists2{
-    text-align: center;
-    background-image: url('../images/chicken.webp');
-    background-size: cover;
-    background-repeat: no-repeat;
-
-    border-bottom: 1px solid #fff;
-  
+#categorylist{
+    height: 303px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
-.menu_lists3{
-    text-align: center;
-    background-image: url('../images/salad.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-
-    border-bottom: 1px solid #fff;
-  
+.menu{
+    height: 83vh;
+    overflow-y: auto;
 }
 div.transbox {
     background-color: #000000;
@@ -134,8 +116,14 @@ div.transbox {
   .buttons{
     width: -webkit-fill-available;
     margin: 5px;
-    border-radius: 20px;
+    border:none;
   }
+  .item_button {
+    background-color: #fbbc04;
+    border: none;
+    border-radius: 19px;
+    color: #fff;
+}
   .profile_image{
 height: 75px;
 }
@@ -158,3 +146,36 @@ height: 75px;
     border: 1px solid lightgray;
     margin: 2px;
 }
+.item_detail{
+    color: gray;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 1px;
+}
+.remove_btn {
+    border-radius: 13px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    line-height: 16px;
+    padding-bottom: 4px;
+}
+    .count_btn {
+        color: #fff;
+        background-color: #fbbc04;
+        border: none;
+        padding: 1px 10px;
+        border-radius: 18px;
+    }
+    ::-webkit-scrollbar{
+        width: 3px;
+    }
+    ::-webkit-scrollbar-track{
+        background: #f1f1f1;
+    }
+  ::-webkit-scrollbar-thumb{
+    background: #888;
+  }
+  ::-webkit-scrollbar-thumb:hover{
+    background: #555;
+  } 

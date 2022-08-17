@@ -8,15 +8,32 @@ import Tab from "react-bootstrap/Tab";
 import { Button, Modal, Carousel } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
-// import Carousel from 'react-bootstrap/Carousel'
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import profile from '../images/profile.png'
 import burger from '../images/burger.jpg'
+var sampledata = [
+  { "fname":"Dhosa",
+     "foodprice":"10$",
+     "path":one,
+     "content":"Lorem Ipsum is not simply random text."
+ },
+ { "fname":"Burger",
+ "foodprice":"15$",
+ "path":burger,
+ "content":"Lorem Ipsum is not simply random text."
+}
+ ]
 function Takeaway(prop) {
   
   let [count, setCount] = useState(0);
-
+  const [doortake, setdoortake] = useState("d-block")
+  const [show, setshow] = useState(false);
+  const [customermshow, setcshow] = useState(false);
+  const [ordermenu, setomenu] = useState("Door delivery");
+  const [today,settime] = useState(new Date())
+  const [foods,details] = useState(sampledata)
+  const [ctime , setctime] = useState(today.getHours() + ':' + today.getMinutes())
   function incrementCount() {
     count = count + 1;
     setCount(count);
@@ -26,15 +43,25 @@ function Takeaway(prop) {
     count = (count==0?count:count - 1);
     setCount(count);
   }
+  function add(id,name,size){
+    console.log(foods)
+  //   details(foods.push({
+  //     "fname":name,
+  //  "foodprice":"15$",
+  //  "content":"Lorem Ipsum is not simply random text."
+  //   }))
+    // if(foods.path == one){
+      // alert("hi")
+    // }
+  }
+
+
   const states = useLocation()
   const { id } = useParams();
-  const [doortake, setdoortake] = useState("d-block")
-  // const { states } = useLocation();
-  const [show, setshow] = useState(false);
-  const [customermshow, setcshow] = useState(false);
-  const [ordermenu, setomenu] = useState("Door delivery");
-  const [today,settime] = useState(new Date())
-  const [ctime , setctime] = useState(today.getHours() + ':' + today.getMinutes())
+
+
+
+
   const handleModal = () => {
     setshow(!show);
   };
@@ -42,6 +69,16 @@ function Takeaway(prop) {
     setcshow(!customermshow)
   };  
 
+  const updatestate=()=>{
+    sampledata.push(
+      { "fname":"pizza",
+      "foodprice":"15$",
+      "path":burger,
+      "content":"Lorem Ipsum is not simply random text."
+     }
+    )
+    details(sampledata)
+  }
  
   useEffect(() => {
     if (id == "doordelivery") {
@@ -59,43 +96,55 @@ function Takeaway(prop) {
   return (
     <div class="container-fluid">
       <div class="row mt-3">
-        <div class="col-md-2 col-lg-2 col-sm-12">
+        <div class="col-md-2 col-lg-2 col-sm-12 p-0 category-list" align="center">
 <div class="menu_lists">           
-<div class="transbox">
-  <div>
-    <p>Burger</p>
-    </div>
+<Col sm={12} md={12} lg={10}>
+                  <Nav.Item className="card category">
+                    <Nav.Link eventKey="first" align="center" >
+                      <img src={one} alt="" class="cardimage rounded-circle" />
+                      <p>Suki set</p>
+                    </Nav.Link>
+                  </Nav.Item>
+                </Col>
   </div>
-</div>
-<div class="menu_lists1">           
-<div class="transbox">
-  <div>
-    <p>Briyani</p>
-    </div>
-  </div>
-</div><div class="menu_lists2">           
-<div class="transbox">
-  <div>
-    <p>Chicken</p>
-    </div>
-  </div>
-</div><div class="menu_lists3">           
-<div class="transbox">
-  <div>
-    <p>Salads</p>
-    </div>
-  </div>
+<div class="menu_lists">           
+<Col sm={12} md={12} lg={10}>
+                  <Nav.Item className="card category">
+                    <Nav.Link eventKey="first" align="center" >
+                      <img src={secount} alt="" class="cardimage rounded-circle" />
+                      <p>Suki set</p>
+                    </Nav.Link>
+                  </Nav.Item>
+                </Col>
+</div><div class="menu_lists">           
+<Col sm={12} md={12} lg={10}>
+                  <Nav.Item className="card category">
+                    <Nav.Link eventKey="first" align="center" >
+                      <img src={one} alt="" class="cardimage rounded-circle" />
+                      <p>Suki set</p>
+                    </Nav.Link>
+                  </Nav.Item>
+                </Col>
+</div><div class="menu_lists">           
+<Col sm={12} md={12} lg={10}>
+                  <Nav.Item className="card category">
+                    <Nav.Link eventKey="first" align="center" >
+                      <img src={one} alt="" class="cardimage rounded-circle" />
+                      <p>Suki set</p>
+                    </Nav.Link>
+                  </Nav.Item>
+                </Col>
 </div>
      </div>
       <div class="col-md-6 col-lg-6 col-sm-12">
           <Tab.Container id="left-tabs-example" defaultActiveKey="first">
             <Nav variant="pills" className="flex-column">
-              <strong>Choose Category</strong>
+              <strong>Choose Sub Category</strong>
               <hr></hr>
               <Row>
                 <Col sm={3} md={4} lg={3}>
                   <Nav.Item className="card category">
-                    <Nav.Link eventKey="first" align="center">
+                    <Nav.Link eventKey="first" align="center" >
                       <img src={one} alt="" class="cardimage rounded-circle" />
                       <p>Suki set</p>
                     </Nav.Link>
@@ -142,286 +191,299 @@ function Takeaway(prop) {
            
             <Tab.Content>
               <Tab.Pane eventKey="first">
-                {/* <div className="row">
-                  <div class="col-lg-2 col-md-4  submenu  col-sm-12">
-                    <div class="card">
-                        <img src={one} alt="" class="cardimage" />
-
-                      <p class="card_paragraph">Aballon Slice</p>
-                    </div>
-                  </div>
-                  <div class="col-md-4 col-lg-2 submenu  col-sm-12">
-                    <div class="card">
-                        <img
-                          src={secount}
-                          alt=""
-                          class="rounded-circle   cardimage"
-                        />
-
-                      <p class="card_paragraph">Aballon Slice</p>
-                    </div>
-                  </div>
-                </div> */}
-                <hr />
-                <div class="row ">
-                  <div class="row cardrow" id="categorylist">
-                    <Carousel interval={null}>
-                    <Carousel.Item>
-                        <div className="row">
-                        <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card cursor-pointer">
-                              <img src={secount} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card cursor-pointer">
-                              <img src={secount} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
+               <hr />
+              
+                  <div class="" id="categorylist">
+                    {/* <Carousel interval={null}> */}
+                    {/* <Carousel.Item> */}
+                        <div className="row mb-3">
+                        <div class="col-md-4 col-lg-4 col-sm-12">
+                            <div class="card cursor-pointer"  >
+                              <div className="card-body">
                               <img src={one} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients"  onClick={(e)=>{
+                                  updatestate()
+                            }} >S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
                           </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
+                          <div class="col-md-4 col-lg-4 col-sm-12">
+                            <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
-
+                          </div> <div class="col-md-4 col-lg-4 col-sm-12">
+                            <div class="card cursor-pointer">
+                              <div className="card-body">
+                              <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
+                              <div className="card-footer text-center">
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
+                              </div>
+                            </div>
                           </div>
+                                                  
                         </div>
-                      </Carousel.Item>
-                      <Carousel.Item>
-                        <div className="row">
-                        <div class="col-md-4 col-lg-3 col-sm-12">
+                      {/* </Carousel.Item> */}
+                      {/* <Carousel.Item> */}
+              {foods.map((item,index)=>(
+                        <div className="row mb-3">
+                        <div class="col-md-4 col-lg-4 col-sm-12">
                             <div class="card cursor-pointer">
-                              <img src={secount} alt="" class="cardimage cardsideimg" />
+                              <div className="card-body">
+                              <img src={item.path} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>{item.fname}</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
+                       
+                         
                           </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card cursor-pointer">
-                              <img src={secount} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
-                              <img src={one} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
-                              <img src={secount} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
-                              </div>
-                            </div>
-
-                          </div>
+                         
                         </div>
-                      </Carousel.Item>
-                      <Carousel.Item>
-                        <div className="row">
-                        <div class="col-md-4 col-lg-3 col-sm-12">
+                        ))
+}
+                      {/* </Carousel.Item> */}
+                      {/* <Carousel.Item> */}
+                        <div className="row mb-3">
+                        <div class="col-md-4 col-lg-4 col-sm-12">
                             <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
+                          </div> <div class="col-md-4 col-lg-4 col-sm-12">
                             <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button>
+</div>
                               </div>
                             </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
-                              <img src={one} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
+                          </div> <div class="col-md-4 col-lg-4 col-sm-12">
+                            <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
                               </div>
-                            </div>
+                              <div className="card-footer text-center">
+                                <small>Aballon Slice</small><div>                              
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
 
+                              </div>
+                            </div>
                           </div>
+                         
                         </div>
-                      </Carousel.Item>
+                      {/* </Carousel.Item> */}
                      
-                    </Carousel>
+                    {/* </Carousel> */}
 
                   </div>
-                </div>
+                
               </Tab.Pane>
               <Tab.Pane eventKey="second">
-                {/* <div className="row">
-                <div class="col-lg-2 col-md-4  submenu  col-sm-12">
-                    <div class="card">
-                        <img src={one} alt="" class="cardimage" />
-
-                      <p class="card_paragraph">Aballon Slice</p>
-                    </div>
-                  </div>
-                  <div class="col-md-4 col-lg-2 submenu  col-sm-12">
-                    <div class="card">
-                        <img
-                          src={secount}
-                          alt=""
-                          class="rounded-circle   cardimage"
-                        />
-
-                      <p class="card_paragraph">Aballon Slice</p>
-                    </div>
-                  </div>
-                </div> */}
+               
                 <hr />
-                <div class="row ">
-                  <div class="row cardrow" id="categorylist">
-                  <Carousel interval={null}>
-                    <Carousel.Item>
-                        <div className="row">
-                        <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card cursor-pointer">
-                              <img src={secount} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card cursor-pointer">
-                              <img src={secount} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
+                <div class="" id="categorylist">
+                    {/* <Carousel interval={null}> */}
+                    {/* <Carousel.Item> */}
+                        <div className="row mb-3">
+                        <div class="col-md-4 col-lg-4 col-sm-12">
+                            <div class="card cursor-pointer" onClick={add}>
+                              <div className="card-body">
                               <img src={one} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
                           </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
+                          <div class="col-md-4 col-lg-4 col-sm-12">
+                            <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
-
+                          </div> <div class="col-md-4 col-lg-4 col-sm-12">
+                            <div class="card cursor-pointer">
+                              <div className="card-body">
+                              <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
+                              <div className="card-footer text-center">
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
+                              </div>
+                            </div>
                           </div>
+                                                  
                         </div>
-                      </Carousel.Item>
-                      <Carousel.Item>
-                        <div className="row">
-                        <div class="col-md-4 col-lg-3 col-sm-12">
+                      {/* </Carousel.Item> */}
+                      {/* <Carousel.Item> */}
+              {foods.map ((item,index)=>(
+                        <div className="row mb-3">
+                        <div class="col-md-4 col-lg-4 col-sm-12">
                             <div class="card cursor-pointer">
-                              <img src={secount} alt="" class="cardimage cardsideimg" />
+                              <div className="card-body">
+                              <img src={item.path} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
+                          </div> <div class="col-md-4 col-lg-4 col-sm-12">
                             <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
-                              <img src={one} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
+                          </div> <div class="col-md-4 col-lg-4 col-sm-12">
+                            <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
-
                           </div>
+                         
                         </div>
-                      </Carousel.Item>
-                      <Carousel.Item>
-                        <div className="row">
-                        <div class="col-md-4 col-lg-3 col-sm-12">
+                        ))
+}
+                      {/* </Carousel.Item> */}
+                      {/* <Carousel.Item> */}
+                        <div className="row mb-3">
+                        <div class="col-md-4 col-lg-4 col-sm-12">
                             <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
+                          </div> <div class="col-md-4 col-lg-4 col-sm-12">
                             <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button>
+</div>
                               </div>
                             </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
-                              <img src={one} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
+                          </div> <div class="col-md-4 col-lg-4 col-sm-12">
+                            <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
                               </div>
-                            </div>
+                              <div className="card-footer text-center">
+                                <small>Aballon Slice</small><div>                              
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
 
+                              </div>
+                            </div>
                           </div>
+                         
                         </div>
-                      </Carousel.Item>
-                    </Carousel>
+                      {/* </Carousel.Item> */}
+                     
+                    {/* </Carousel> */}
+
                   </div>
-                </div>
               </Tab.Pane>
               <Tab.Pane eventKey="third">
                 {/* <div className="row">
@@ -443,121 +505,160 @@ function Takeaway(prop) {
                   </div>
                 </div> */}
                 <hr />
-                <div class="row cardrow" id="categorylist">
-                <Carousel interval={null}>
-                    <Carousel.Item>
-                        <div className="row">
-                        <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card cursor-pointer">
-                              <img src={secount} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card cursor-pointer">
-                              <img src={secount} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
+                <div class="" id="categorylist">
+                    {/* <Carousel interval={null}> */}
+                    {/* <Carousel.Item> */}
+                        <div className="row mb-3">
+                        <div class="col-md-4 col-lg-4 col-sm-12">
+                            <div class="card cursor-pointer" onClick={add}>
+                              <div className="card-body">
                               <img src={one} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
                           </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
+                          <div class="col-md-4 col-lg-4 col-sm-12">
+                            <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
-
+                          </div> <div class="col-md-4 col-lg-4 col-sm-12">
+                            <div class="card cursor-pointer">
+                              <div className="card-body">
+                              <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
+                              <div className="card-footer text-center">
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
+                              </div>
+                            </div>
                           </div>
+                                                  
                         </div>
-                      </Carousel.Item>
-                      <Carousel.Item>
-                        <div className="row">
-                        <div class="col-md-4 col-lg-3 col-sm-12">
+                      {/* </Carousel.Item> */}
+                      {/* <Carousel.Item> */}
+              {foods.map ((item,index)=>(
+                        <div className="row mb-3">
+                        <div class="col-md-4 col-lg-4 col-sm-12">
                             <div class="card cursor-pointer">
-                              <img src={secount} alt="" class="cardimage cardsideimg" />
+                              <div className="card-body">
+                              <img src={item.path} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
+                          </div> <div class="col-md-4 col-lg-4 col-sm-12">
                             <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
-                              <img src={one} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
+                          </div> <div class="col-md-4 col-lg-4 col-sm-12">
+                            <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
-
                           </div>
+                         
                         </div>
-                      </Carousel.Item>
-                      <Carousel.Item>
-                        <div className="row">
-                        <div class="col-md-4 col-lg-3 col-sm-12">
+                        ))
+}
+                      {/* </Carousel.Item> */}
+                      {/* <Carousel.Item> */}
+                        <div className="row mb-3">
+                        <div class="col-md-4 col-lg-4 col-sm-12">
                             <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
+                          </div> <div class="col-md-4 col-lg-4 col-sm-12">
                             <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button>
+</div>
                               </div>
                             </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
-                              <img src={one} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
+                          </div> <div class="col-md-4 col-lg-4 col-sm-12">
+                            <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
                               </div>
-                            </div>
+                              <div className="card-footer text-center">
+                                <small>Aballon Slice</small><div>                              
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
 
+                              </div>
+                            </div>
                           </div>
+                         
                         </div>
-                      </Carousel.Item>
+                      {/* </Carousel.Item> */}
                      
-                    </Carousel>
+                    {/* </Carousel> */}
+
                   </div>
               </Tab.Pane>
 
@@ -582,120 +683,161 @@ function Takeaway(prop) {
                   </div>
                 </div> */}
                 <hr />
-                <div class="row ">
-                <div class="row cardrow" id="categorylist">
-                  <Carousel interval={null}>
-                    <Carousel.Item>
-                        <div className="row">
-                        <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card cursor-pointer">
-                              <img src={secount} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card cursor-pointer">
-                              <img src={secount} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
+                <div class="" id="categorylist">
+                    {/* <Carousel interval={null}> */}
+                    {/* <Carousel.Item> */}
+                        <div className="row mb-3">
+                        <div class="col-md-4 col-lg-4 col-sm-12">
+                            <div class="card cursor-pointer" onClick={add}>
+                              <div className="card-body">
                               <img src={one} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
                           </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
+                          <div class="col-md-4 col-lg-4 col-sm-12">
+                            <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
+                              </div>
+                            </div>
+                          </div> <div class="col-md-4 col-lg-4 col-sm-12">
+                            <div class="card cursor-pointer">
+                              <div className="card-body">
+                              <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
+                              <div className="card-footer text-center">
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
                           </div>
+                                                  
                         </div>
-                      </Carousel.Item>
-                      <Carousel.Item>
-                        <div className="row">
-                        <div class="col-md-4 col-lg-3 col-sm-12">
+                      {/* </Carousel.Item> */}
+                      {/* <Carousel.Item> */}
+              {foods.map ((item,index)=>(
+                        <div className="row mb-3">
+                        <div class="col-md-4 col-lg-4 col-sm-12">
                             <div class="card cursor-pointer">
-                              <img src={secount} alt="" class="cardimage cardsideimg" />
+                              <div className="card-body">
+                              <img src={item.path} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
+                          </div> <div class="col-md-4 col-lg-4 col-sm-12">
                             <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
-                              <img src={one} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
+                          </div> <div class="col-md-4 col-lg-4 col-sm-12">
+                            <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
                           </div>
+                         
                         </div>
-                      </Carousel.Item>
-                      <Carousel.Item>
-                        <div className="row">
-                        <div class="col-md-4 col-lg-3 col-sm-12">
+                        ))
+}
+                      {/* </Carousel.Item> */}
+                      {/* <Carousel.Item> */}
+                        <div className="row mb-3">
+                        <div class="col-md-4 col-lg-4 col-sm-12">
                             <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
                               </div>
                             </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
+                          </div> <div class="col-md-4 col-lg-4 col-sm-12">
                             <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small>
+                                <div>
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button>
+</div>
                               </div>
                             </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
-                              <img src={one} alt="" class="cardimage cardsideimg" />
-                              <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-lg-3 col-sm-12">
-                            <div class="card ">
+                          </div> <div class="col-md-4 col-lg-4 col-sm-12">
+                            <div class="card cursor-pointer">
+                              <div className="card-body">
                               <img src={secount} alt="" class="cardimage cardsideimg" />
+                              </div>
                               <div className="card-footer text-center">
-                                <small>Aballon Slice</small><small> $.0998</small>
+                                <small>Aballon Slice</small><div>                              
+                                <button className="varients">S</button>
+<button className="varients">M</button>
+<button className="varients">L</button>
+<button className="varients">X</button></div>
+
                               </div>
                             </div>
                           </div>
+                         
                         </div>
-                      </Carousel.Item>
-                    </Carousel>
+                      {/* </Carousel.Item> */}
+                     
+                    {/* </Carousel> */}
+
                   </div>
-                </div>
               </Tab.Pane>
             </Tab.Content>
           </Tab.Container>
@@ -743,7 +885,7 @@ function Takeaway(prop) {
               </a>
             </div>
           </div>
-          <div class="input-group mb-1 mt-1">
+          <div class="input-group mb-3 mt-1">
             <input
               type="text"
               class="form-control"
@@ -816,13 +958,13 @@ function Takeaway(prop) {
               </div>
             </div>
           </div> */}
-          <div className="row order_card">
+          <div className="d-flex order_card">
             <div className="col-md-5 p-0">
 <div className="">
-<button type="button" class="btn btn-success buttons">Order in Progress</button>
+<button type="button" class="btn  buttons">Order in Progress</button>
 </div>
 <div className="">
-<button type="button" class="btn btn-danger buttons">Time {ctime}
+<button type="button" class="btn buttons">Time {ctime}
 </button>
 </div>
             </div>
@@ -833,101 +975,50 @@ function Takeaway(prop) {
             </div>
             <div className="col-md-5 p-0">
             <div className="">
-<button type="button" class="btn btn-success buttons">Item Code:227</button>
+<button type="button" class="btn buttons item_button">Item Code:227</button>
 </div>
 <div className="">
-<button type="button" class="btn btn-danger buttons">Order No:5
+<button type="button" class="btn buttons">Order No:5
 </button>
 </div>
           </div>
           </div>
-          <div className="row additem mt-2">
-<div className="col-md-12">
-  {/* <div className=""> */}
-              <h6>Cheese Burger</h6>
-              {/* </div>
-              <div className=""> */}
-            {/* <button className=" ">x</button> */}
-            {/* </div> */}
-            </div>
-        <div className="col-md-3">
-  <div>
-<img className="burger_image" src={burger}></img>
+          <div className="additem mt-2">
+            <div className="col-md-12">
+
+
+            {foods.map ((item,index)=>(
+              <div className="d-flex">
+    <div className="col-md-3">
+ <h6>{item.fname}</h6>
+    <img className="burger_image" src={item.path}></img>
+    </div>
+    <div className="col-md-7">
+      <div>
+<small>{item.content}</small>
 </div>
-</div>
-<div className="col-md-7">
-<small>Lorem Ipsum is not simply random text.</small>
+<div>
 <button className="varients">S</button>
 <button className="varients">M</button>
 <button className="varients">L</button>
 <button className="varients">X</button>
-
 </div>
-<div className="col-md-2">
-{/* <button>x</button> */}
-<button onClick={incrementCount}>+</button>
-      <p>{count}</p>
-       <button onClick={decrementCount}>-</button>
 </div>
-          </div>
-          <div className="row additem mt-2">
-<div className="col-md-12">
-  {/* <div className=""> */}
-              <h6>Cheese Burger</h6>
-              {/* </div>
-              <div className=""> */}
-            {/* <button className=" ">x</button> */}
-            {/* </div> */}
+<div className="col-md-2" align="right">
+<button className="remove_btn">x</button>
+<div className="d-flex pt-3">
+<button className="count_btn" onClick={incrementCount}>+</button>
+      <span className="p-1">{count}</span>
+       <button className="count_btn" onClick={decrementCount}>-</button>
+</div>
             </div>
-        <div className="col-md-3">
-  <div>
-<img className="burger_image" src={burger}></img>
 </div>
-</div>
-<div className="col-md-7">
-<small>Lorem Ipsum is not simply random text.</small>
-<button className="varients">S</button>
-<button className="varients">M</button>
-<button className="varients">L</button>
-<button className="varients">X</button>
-
-</div>
-<div className="col-md-2">
-{/* <button>x</button> */}
-<button onClick={incrementCount}>+</button>
-      <p>{count}</p>
-       <button onClick={decrementCount}>-</button>
-</div>
-          </div>
-          <div className="row additem mt-2">
-<div className="col-md-12">
-  {/* <div className=""> */}
-              <h6>Cheese Burger</h6>
-              {/* </div>
-              <div className=""> */}
-            {/* <button className=" ">x</button> */}
-            {/* </div> */}
+)
+)}
+              
             </div>
-        <div className="col-md-3">
-  <div>
-<img className="burger_image" src={burger}></img>
-</div>
-</div>
-<div className="col-md-7">
-<small>Lorem Ipsum is not simply random text.</small>
-<button className="varients">S</button>
-<button className="varients">M</button>
-<button className="varients">L</button>
-<button className="varients">X</button>
-
-</div>
-<div className="col-md-2">
-{/* <button>x</button> */}
-<button onClick={incrementCount}>+</button>
-      <p>{count}</p>
-       <button onClick={decrementCount}>-</button>
-</div>
-          </div>
+              </div>
+        
         </div>
       </div>
       {/* order modal */}

@@ -251,3 +251,47 @@
  }
  }
  
+ @media screen and (min-width: 1310px)  { 
+    .bbq{
+     position: absolute;
+     top: 160px;
+     left: 145px;
+    }
+    .bbq1{
+     position: absolute;
+     top: 160px;
+     left: 430px;
+ }
+ .bbq2{
+     position: absolute;
+     top: 160px;
+     left: 785px;
+ }
+ .bbq3{
+     position: absolute;
+     top: 160px;
+ 
+     left: 1115px;
+ }
+ .bbq4{
+     position: absolute;
+     top:370px;
+     left: 124px;
+ 
+ }
+ .bbq5{
+     position: absolute;
+     top: 370px;
+     left: 455px;
+ }
+ .bbq6{
+     position: absolute;
+     top: 370px;
+     left: 785px;
+ }
+ .bbq7{
+     position: absolute;
+     top: 370px;
+     left: 1115px;
+ }
+ }
